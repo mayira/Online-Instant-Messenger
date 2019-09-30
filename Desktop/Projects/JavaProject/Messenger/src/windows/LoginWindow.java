@@ -31,7 +31,7 @@ public class LoginWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        CChat = new javax.swing.JPanel();
+        Messenger = new javax.swing.JPanel();
         jtxtUsername = new javax.swing.JTextField();
         jtxtPassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
@@ -44,17 +44,18 @@ public class LoginWindow extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("CChat Login");
+        setTitle("Chat Login");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setMinimumSize(new java.awt.Dimension(330, 310));
         setSize(new java.awt.Dimension(330, 310));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        CChat.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "C_Chat Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Heading", 3, 36), new java.awt.Color(0, 102, 102))); // NOI18N
-        CChat.setForeground(new java.awt.Color(0, 102, 102));
-        CChat.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        CChat.setFocusTraversalPolicyProvider(true);
-        CChat.setMaximumSize(new java.awt.Dimension(320, 180));
+        Messenger.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED), "Chat Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Heading", 3, 36), new java.awt.Color(0, 102, 102))); // NOI18N
+        Messenger.setForeground(new java.awt.Color(0, 102, 102));
+        Messenger.setToolTipText("");
+        Messenger.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Messenger.setFocusTraversalPolicyProvider(true);
+        Messenger.setMaximumSize(new java.awt.Dimension(320, 180));
 
         jtxtUsername.setCaretColor(new java.awt.Color(0, 102, 102));
 
@@ -77,36 +78,36 @@ public class LoginWindow extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout CChatLayout = new javax.swing.GroupLayout(CChat);
-        CChat.setLayout(CChatLayout);
-        CChatLayout.setHorizontalGroup(
-            CChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CChatLayout.createSequentialGroup()
+        javax.swing.GroupLayout MessengerLayout = new javax.swing.GroupLayout(Messenger);
+        Messenger.setLayout(MessengerLayout);
+        MessengerLayout.setHorizontalGroup(
+            MessengerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessengerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(CChatLayout.createSequentialGroup()
+                .addGroup(MessengerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(MessengerLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CChatLayout.createSequentialGroup()
+                        .addComponent(jtxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(MessengerLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CChatLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MessengerLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
         );
-        CChatLayout.setVerticalGroup(
-            CChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CChatLayout.createSequentialGroup()
+        MessengerLayout.setVerticalGroup(
+            MessengerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MessengerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(CChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MessengerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(CChatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(MessengerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtxtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -114,8 +115,9 @@ public class LoginWindow extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(CChat, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 320, 170));
-        CChat.getAccessibleContext().setAccessibleDescription("");
+        getContentPane().add(Messenger, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 320, 170));
+        Messenger.getAccessibleContext().setAccessibleName("Messenger Login");
+        Messenger.getAccessibleContext().setAccessibleDescription("");
 
         jPanel3.setBackground(new java.awt.Color(15, 228, 203));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -326,7 +328,7 @@ public class LoginWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel CChat;
+    private javax.swing.JPanel Messenger;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;

@@ -33,7 +33,7 @@ public class ServerWindow extends javax.swing.JFrame
             }
             catch (Exception ex) 
             {
-                c_chat.append("Error\n");
+                chat.append("Error\n");
             }
 
        }
@@ -56,7 +56,7 @@ public class ServerWindow extends javax.swing.JFrame
                     
                     for (String token:data) 
                     {
-                        c_chat.append(token + "\n");
+                        ServerWindow.this.chat.append(token + "\n");
                     }
 
                     if (data[2].equals(connect)) 
@@ -75,13 +75,13 @@ public class ServerWindow extends javax.swing.JFrame
                     } 
                     else 
                     {
-                     //  c_chat.append("Disconnected\n");
+                     //  chat.append("Disconnected\n");
                     }
                 } 
              } 
              catch (Exception ex) 
              {
-                c_chat.append("disconnected \n");
+                ServerWindow.this.chat.append("disconnected \n");
                 ex.printStackTrace();
                 ClientOutputStreams.remove(Client);
              }}}
@@ -98,14 +98,14 @@ public class ServerWindow extends javax.swing.JFrame
         background1 = new javax.swing.JPanel();
         Chat_Name1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        c_chat = new javax.swing.JTextArea();
+        chat = new javax.swing.JTextArea();
         Start_Button = new javax.swing.JButton();
         End_Button = new javax.swing.JButton();
         Online_Users_Button = new javax.swing.JButton();
         Clear_Button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CChat Server");
+        setTitle("Chat Server");
         setLocation(new java.awt.Point(700, 300));
         setName("server"); // NOI18N
         setResizable(false);
@@ -114,12 +114,12 @@ public class ServerWindow extends javax.swing.JFrame
 
         Chat_Name1.setFont(new java.awt.Font("Sitka Text", 3, 72)); // NOI18N
         Chat_Name1.setForeground(new java.awt.Color(15, 228, 212));
-        Chat_Name1.setText("C_Chat");
+        Chat_Name1.setText(" Chat");
 
-        c_chat.setColumns(20);
-        c_chat.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
-        c_chat.setRows(5);
-        jScrollPane1.setViewportView(c_chat);
+        chat.setColumns(20);
+        chat.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
+        chat.setRows(5);
+        jScrollPane1.setViewportView(chat);
 
         Start_Button.setBackground(new java.awt.Color(255, 255, 255));
         Start_Button.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -198,7 +198,7 @@ public class ServerWindow extends javax.swing.JFrame
                             .addComponent(Clear_Button))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         Chat_Name1.getAccessibleContext().setAccessibleName("CChat");
@@ -211,14 +211,16 @@ public class ServerWindow extends javax.swing.JFrame
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void Clear_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Clear_ButtonActionPerformed
-        c_chat.setText(""); //reset
+        chat.setText(""); //reset
     }//GEN-LAST:event_Clear_ButtonActionPerformed
 
     // for test
@@ -234,11 +236,11 @@ public class ServerWindow extends javax.swing.JFrame
     
     
     private void Online_Users_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Online_Users_ButtonActionPerformed
-        c_chat.append("\n Online users : \n");
+        chat.append("\n Online users : \n");
         for (String current_user : Users)
         {
-            c_chat.append(current_user);
-            c_chat.append("\n");
+            chat.append(current_user);
+            chat.append("\n");
         }
 
     }//GEN-LAST:event_Online_Users_ButtonActionPerformed
@@ -265,10 +267,10 @@ public class ServerWindow extends javax.swing.JFrame
         }
         catch(InterruptedException ex) {
             Thread.currentThread().interrupt();}
-          c_chat.append("Shutting down\n");
+          chat.append("Shutting down\n");
         Spread("Server: turning off \n:t");
      
-        c_chat.setText("");
+        chat.setText("");
     }//GEN-LAST:event_End_ButtonActionPerformed
 
     
@@ -276,7 +278,7 @@ public class ServerWindow extends javax.swing.JFrame
         Thread starter = new Thread(new Connection());
         starter.start();
 
-        c_chat.append("Booting\n");
+        chat.append("Booting\n");
     }//GEN-LAST:event_Start_ButtonActionPerformed
 
     public static void main(String args[]) 
@@ -311,12 +313,12 @@ public class ServerWindow extends javax.swing.JFrame
                                 // creating threds to listen to every client 
 				Thread listener = new Thread(new clientManager(clientSock, writer));
 				listener.start();
-				c_chat.append("Connection successful \n");
+				chat.append("Connection successful \n");
                 }
             }
             catch (Exception ex)
             {
-                c_chat.append("ERROR \n");
+                chat.append("ERROR \n");
             }
         }
     }
@@ -328,7 +330,7 @@ public class ServerWindow extends javax.swing.JFrame
        
         String name = data;
         Users.add(name);
-        c_chat.append(name + " added. \n");
+        chat.append(name + " added. \n");
         String[] tempList = new String[(Users.size())];
         Users.toArray(tempList);
 
@@ -347,7 +349,7 @@ public class ServerWindow extends javax.swing.JFrame
         
         String name = data;
         Users.remove(name);
-        c_chat.append(name + " removed.\n");
+        chat.append(name + " removed.\n");
         String[] tempList = new String[(Users.size())];
         Users.toArray(tempList);
 
@@ -370,11 +372,11 @@ public class ServerWindow extends javax.swing.JFrame
 		writer.println(message);
 		//c_chat.append("Sending: " + message + "\n");
                 writer.flush();
-                c_chat.setCaretPosition(c_chat.getDocument().getLength());
+                chat.setCaretPosition(chat.getDocument().getLength());
             } 
             catch (Exception ex) 
             {
-		c_chat.append("Error \n");
+		chat.append("Error \n");
             }
         } 
     }
@@ -394,7 +396,7 @@ public class ServerWindow extends javax.swing.JFrame
     private javax.swing.JButton Online_Users_Button;
     private javax.swing.JButton Start_Button;
     private javax.swing.JPanel background1;
-    private javax.swing.JTextArea c_chat;
+    private javax.swing.JTextArea chat;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

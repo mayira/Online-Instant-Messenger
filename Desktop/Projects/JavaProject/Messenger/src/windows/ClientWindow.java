@@ -40,7 +40,7 @@ public class ClientWindow extends javax.swing.JFrame
     
     public void userRemove(String data) 
     {
-         C_Chat.append(data + " is now offline.\n");
+         Chat.append(data + " is now offline.\n");
     }
     
     
@@ -64,7 +64,7 @@ public class ClientWindow extends javax.swing.JFrame
             Writer.flush(); 
         } catch (Exception e) 
         {
-            //C_Chat.append("Could not send Disconnect message.\n");
+            //Chat.append("Could not send Disconnect message.\n");
         }
     }
 
@@ -97,12 +97,12 @@ public class ClientWindow extends javax.swing.JFrame
 
                      if (data[2].equals(chat)) 
                      {
-                        C_Chat.append(data[0] + ": " + data[1] + "\n");
-                        C_Chat.setCaretPosition(C_Chat.getDocument().getLength());
+                        Chat.append(data[0] + ": " + data[1] + "\n");
+                        Chat.setCaretPosition(Chat.getDocument().getLength());
                      } 
                      else if (data[2].equals(connect))
                      {
-                        C_Chat.removeAll();
+                        Chat.removeAll();
                         userAdd(data[0]);
                      } 
                      else if (data[2].equals(disconnect)) 
@@ -129,7 +129,7 @@ public class ClientWindow extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         background = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        C_Chat = new javax.swing.JTextArea();
+        Chat = new javax.swing.JTextArea();
         Chat_Name = new javax.swing.JLabel();
         START = new javax.swing.JButton();
         LogOff_Button = new javax.swing.JButton();
@@ -148,22 +148,23 @@ public class ClientWindow extends javax.swing.JFrame
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("CChat User");
+        setTitle("Chat User");
         setLocation(new java.awt.Point(700, 300));
         setName("client"); // NOI18N
         setResizable(false);
 
         background.setBackground(new java.awt.Color(15, 228, 203));
+        background.setToolTipText("");
 
-        C_Chat.setColumns(20);
-        C_Chat.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
-        C_Chat.setForeground(new java.awt.Color(2, 70, 70));
-        C_Chat.setRows(5);
-        jScrollPane1.setViewportView(C_Chat);
+        Chat.setColumns(20);
+        Chat.setFont(new java.awt.Font("Monospaced", 0, 16)); // NOI18N
+        Chat.setForeground(new java.awt.Color(2, 70, 70));
+        Chat.setRows(5);
+        jScrollPane1.setViewportView(Chat);
 
         Chat_Name.setFont(new java.awt.Font("Sitka Text", 3, 72)); // NOI18N
         Chat_Name.setForeground(new java.awt.Color(0, 102, 102));
-        Chat_Name.setText("C_Chat");
+        Chat_Name.setText(" Chat");
 
         START.setBackground(new java.awt.Color(0, 153, 153));
         START.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -205,35 +206,33 @@ public class ClientWindow extends javax.swing.JFrame
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(Chat_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LogOff_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(START, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(backgroundLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1)
-                            .addGroup(backgroundLayout.createSequentialGroup()
-                                .addComponent(type_window, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Send_button, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1)
+                        .addGroup(backgroundLayout.createSequentialGroup()
+                            .addComponent(type_window, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Send_button, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(45, 45, 45)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(backgroundLayout.createSequentialGroup()
                         .addComponent(START)
                         .addGap(26, 26, 26)
                         .addComponent(LogOff_Button, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Chat_Name, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -250,10 +249,10 @@ public class ClientWindow extends javax.swing.JFrame
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-
-        background.getAccessibleContext().setAccessibleName("");
 
         getAccessibleContext().setAccessibleName("CChat  User");
 
@@ -282,13 +281,13 @@ public class ClientWindow extends javax.swing.JFrame
                     }
             catch (Exception ex) 
             {
-                C_Chat.append("            Fail to Connect Server!\n");
+                Chat.append("            Fail to Connect Server!\n");
                // type_username.setEditable(true);
 
             }   
             else{
             
-                C_Chat.append("             You already Started! \n");
+                Chat.append("             You already Started! \n");
 
             }
             ListenThread();
@@ -318,7 +317,7 @@ public class ClientWindow extends javax.swing.JFrame
                Writer.println(nameUser + ":" + type_window.getText() + ":" + "t");
                Writer.flush(); // flushes the buffer
             } catch (Exception ex) {
-                C_Chat.append("            Could not send Messages.\n"
+                Chat.append("            Could not send Messages.\n"
                             );
             }
             type_window.setText("");
@@ -347,7 +346,7 @@ public class ClientWindow extends javax.swing.JFrame
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea C_Chat;
+    private javax.swing.JTextArea Chat;
     private javax.swing.JLabel Chat_Name;
     private javax.swing.JButton LogOff_Button;
     private javax.swing.JButton START;
