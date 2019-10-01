@@ -1,17 +1,6 @@
-# Online-Instant-Messenger
-The project uses NetBeans IDE, socket programming.
+# ----------- Description ----------
 
-# Number of Users
-Online Instant Messenger allows server and client to chat remotely. It has implementation of one server and multiple users.
-
-# GUI
-Graphical user interface is implemented for the login window, the server and the client. 
-
-# DataBase
-DataBase has a table of users' names and their passwords. 
-
-
-
+Online-Instant-Messenger creates socket connection that allows communication between multiple users and one server. Login Window, Client and Server Windows have Graphical User Interfaces. Login window is connected to database that stores users' names and their passwords. The project is written in Java using Netbeans IDE.
 
 
 #  ----------- Functionality ----------
