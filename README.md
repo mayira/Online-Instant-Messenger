@@ -3,7 +3,7 @@
 Online-Instant-Messenger creates a socket connection that allows communication between multiple users and one server. Login Window, Client and Server Windows have Graphical User Interfaces.The Login window is connected to the database that stores users' names and their passwords. The project is written in Java using Netbeans IDE.
 
 
-#  ----------- Functionality ----------
+#  ----------- Functionality ---------
 
 1. Using NetBeans IDE run serverwindow.java first. It will open the server window. Press "START" to run the server.
 
